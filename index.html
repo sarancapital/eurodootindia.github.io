@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EuroDoot — Your Career in Germany Starts Here</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --burg:#8B1A3A; --crim:#C8213F; --dark:#0F0520;
+  --offwh:#FDF8F9; --lgrey:#F3EEF1; --divider:#E8D5DA;
+  --green:#1A5C38; --gold:#FFD166; --pink:#FFD4DC;
+  --text:#1A0A12; --muted:#6B3A50; --body:#3A1020;
+  --white:#FFFFFF;
+  --ff-head:'DM Serif Display',Georgia,serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --max:1120px;
+  --r:10px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(15,5,32,0.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(139,26,58,0.3);
+}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-logo{font-family:var(--ff-head);font-size:1.5rem;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:4px}
+.nav-logo span{color:var(--pink)}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-employer{border:1px solid rgba(255,209,102,0.5);color:var(--gold)!important;border-radius:6px;padding:5px 14px!important;font-size:.8rem!important;letter-spacing:.5px;transition:background .2s,color .2s!important}
+.nav-employer:hover{background:var(--gold)!important;color:var(--dark)!important}
+.nav-cta{background:var(--burg);color:var(--white)!important;border-radius:6px;padding:6px 18px!important;font-weight:600!important;font-size:.85rem!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--crim)!important}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(150deg,#050110 0%,#0F0520 40%,#1a0a30 70%,#0a1430 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(139,26,58,0.18) 0%,transparent 70%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(to bottom,transparent,var(--white));
+}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,209,102,0.1);border:1px solid rgba(255,209,102,0.3);
+  color:var(--gold);font-size:.8rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{content:'★';font-size:.7rem}
+.hero h1{font-family:var(--ff-head);font-size:clamp(2.6rem,6vw,4.2rem);color:var(--white);line-height:1.1;margin-bottom:1.25rem;font-weight:400}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,0.65);max-width:580px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;text-decoration:none;transition:all .2s;border:none;padding:14px 26px}
+.btn-primary{background:var(--burg);color:var(--white)}
+.btn-primary:hover{background:var(--crim);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:var(--white)}
+.btn-ghost:hover{background:rgba(255,255,255,0.14)}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-n{font-family:var(--ff-head);font-size:2rem;color:var(--gold);line-height:1;display:block}
+.stat-l{font-size:.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:.6px;margin-top:3px;display:block}
+
+/* ── SECTION COMMON ── */
+section{padding:5rem 2rem}
+.container{max-width:var(--max);margin:0 auto}
+.section-label{font-size:.75rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--burg);margin-bottom:.75rem}
+.section-title{font-family:var(--ff-head);font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--dark);line-height:1.15;margin-bottom:1rem;font-weight:400}
+.section-sub{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.7}
+
+/* ── EMPLOYER BANNER ── */
+.emp-banner{background:var(--dark);padding:1rem 2rem}
+.emp-banner-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.emp-banner p{color:rgba(255,255,255,0.6);font-size:.85rem}
+.emp-banner p strong{color:var(--white)}
+.emp-link{font-size:.82rem;color:var(--gold);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:5px;border:1px solid rgba(255,209,102,0.4);padding:5px 14px;border-radius:5px;transition:all .2s}
+.emp-link:hover{background:var(--gold);color:var(--dark)}
+
+/* ── DEMAND / NEWS STRIP ── */
+.demand{background:var(--offwh);border-top:1px solid var(--divider);padding:3.5rem 2rem}
+.demand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2.5rem}
+.demand-card{background:var(--white);border:1px solid var(--divider);border-radius:var(--r);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;box-shadow:0 2px 8px rgba(139,26,58,0.06);transition:box-shadow .2s}
+.demand-card:hover{box-shadow:0 4px 18px rgba(139,26,58,0.1)}
+.demand-icon{width:42px;height:42px;border-radius:8px;background:var(--burg);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.1rem;flex-shrink:0}
+.demand-body h4{font-size:.95rem;font-weight:600;color:var(--dark);margin-bottom:4px}
+.demand-body p{font-size:.85rem;color:var(--muted);line-height:1.5}
+.demand-body cite{font-size:.75rem;color:var(--burg);font-style:normal;font-weight:500;margin-top:6px;display:block}
+
+/* ── SERVICES / WHY ── */
+.why{padding:5rem 2rem;background:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-top:3rem}
+.why-card{border:1px solid var(--divider);border-radius:var(--r);padding:1.75rem;background:var(--offwh);transition:all .2s;cursor:default;position:relative;overflow:hidden}
+.why-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--burg);opacity:0;transition:opacity .2s}
+.why-card:hover::before{opacity:1}
+.why-card:hover{border-color:var(--burg);box-shadow:0 4px 20px rgba(139,26,58,0.08)}
+.why-num{font-family:var(--ff-head);font-size:2.5rem;color:var(--divider);line-height:1;margin-bottom:.75rem;font-weight:400}
+.why-title{font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:.5rem}
+.why-text{font-size:.875rem;color:var(--muted);line-height:1.6}
+
+/* ── JOBS ── */
+.jobs{background:var(--offwh);padding:5rem 2rem}
+.jobs-grid{display:grid;gap:1rem;margin-top:2.5rem}
+.job-card{background:var(--white);border:1px solid var(--divider);border-radius:var(--r);padding:1.5rem 1.75rem;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;transition:all .2s}
+.job-card:hover{border-color:var(--burg);box-shadow:0 4px 18px rgba(139,26,58,0.09)}
+.job-badge{display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;color:#1E40AF;font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:4px;margin-bottom:.5rem;letter-spacing:.3px}
+.job-badge.ausb{background:#F0FDF4;color:#1A5C38}
+.job-title{font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:.35rem}
+.job-meta{display:flex;flex-wrap:wrap;gap:.5rem .85rem}
+.job-tag{font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:4px}
+.job-tag::before{content:'·';color:var(--divider)}
+.job-tag:first-child::before{display:none}
+.job-salary{font-family:var(--ff-head);font-size:1.35rem;color:var(--burg);white-space:nowrap;font-weight:400}
+.job-actions{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
+.btn-apply{background:var(--burg);color:var(--white);border-radius:6px;padding:9px 20px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-apply:hover{background:var(--crim)}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--dark);color:var(--white);padding:5rem 2rem;position:relative;overflow:hidden}
+.how::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(139,26,58,0.15),transparent 70%)}
+.how .section-title{color:var(--white)}
+.how .section-sub{color:rgba(255,255,255,0.55)}
+.steps-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3rem;position:relative}
+.step{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:1.5rem 1.25rem;position:relative}
+.step-num{width:32px;height:32px;border-radius:50%;background:var(--burg);color:var(--white);font-size:.85rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.step-title{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+.step-text{font-size:.82rem;color:rgba(255,255,255,0.55);line-height:1.55}
+.step-duration{font-size:.75rem;color:var(--gold);margin-top:.6rem;font-weight:500}
+
+/* ── FEE STRUCTURE ── */
+.fee-section{background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.06);margin-top:4rem;padding-top:3rem}
+.fee-title{font-family:var(--ff-head);font-size:1.5rem;color:var(--white);margin-bottom:.5rem;font-weight:400}
+.fee-intro{font-size:.9rem;color:rgba(255,255,255,0.55);margin-bottom:2rem;max-width:600px;line-height:1.6}
+.milestones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.milestone{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:1.5rem;border-top:2px solid}
+.milestone:nth-child(1){border-top-color:var(--burg)}
+.milestone:nth-child(2){border-top-color:var(--gold)}
+.milestone:nth-child(3){border-top-color:var(--green)}
+.milestone-num{font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:.75rem}
+.milestone-when{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+.milestone-amount{font-family:var(--ff-head);font-size:1.8rem;color:var(--gold);line-height:1;margin-bottom:.75rem;font-weight:400}
+.milestone-what{font-size:.82rem;color:rgba(255,255,255,0.55);line-height:1.6}
+.fee-note{margin-top:1.5rem;background:rgba(139,26,58,0.15);border:1px solid rgba(139,26,58,0.3);border-radius:8px;padding:1rem 1.25rem;font-size:.82rem;color:rgba(255,255,255,0.6);line-height:1.6}
+.fee-note strong{color:var(--pink)}
+
+/* ── CAREER ADVICE ── */
+.advice{background:var(--white);padding:5rem 2rem}
+.advice-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start}
+.topic-list{display:flex;flex-direction:column;gap:.75rem}
+.topic{display:flex;align-items:flex-start;gap:1rem;padding:1rem 1.25rem;border-radius:8px;border:1px solid var(--divider);background:var(--offwh);transition:all .2s;cursor:pointer}
+.topic:hover{border-color:var(--burg);background:var(--white);box-shadow:0 2px 12px rgba(139,26,58,0.07)}
+.topic-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.topic-body h4{font-size:.92rem;font-weight:600;color:var(--dark);margin-bottom:2px}
+.topic-body p{font-size:.82rem;color:var(--muted);line-height:1.5}
+.consult-card{background:var(--dark);border-radius:var(--r);padding:2rem;position:sticky;top:80px}
+.consult-card h3{font-family:var(--ff-head);font-size:1.4rem;color:var(--white);margin-bottom:.5rem;font-weight:400}
+.consult-card p{font-size:.85rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1.5rem}
+.time-options{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.5rem}
+.time-opt{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:7px;padding:.75rem;text-align:center;cursor:pointer;transition:all .2s}
+.time-opt:hover,.time-opt.active{background:rgba(139,26,58,0.3);border-color:var(--burg)}
+.time-opt span{display:block;font-size:.82rem;color:rgba(255,255,255,0.6);margin-top:2px}
+.time-opt strong{color:var(--white);font-size:.88rem}
+.consult-note{font-size:.78rem;color:rgba(255,255,255,0.35);line-height:1.5;margin-top:1rem}
+.resources{margin-top:2rem}
+.resource-item{display:flex;align-items:center;gap:.75rem;padding:.85rem 0;border-bottom:1px solid var(--divider)}
+.resource-item:last-child{border-bottom:none}
+.resource-icon{width:36px;height:36px;border-radius:7px;background:var(--offwh);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.resource-body{flex:1}
+.resource-body h5{font-size:.88rem;font-weight:600;color:var(--dark);margin-bottom:1px}
+.resource-body p{font-size:.78rem;color:var(--muted)}
+.resource-link{font-size:.8rem;color:var(--burg);font-weight:600;text-decoration:none}
+
+/* ── ABOUT ── */
+.about{background:var(--offwh);padding:5rem 2rem}
+.about-lead{max-width:680px;margin-bottom:3.5rem}
+.about-lead p{font-size:1.05rem;color:var(--body);line-height:1.75;margin-bottom:1rem}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
+.team-side{background:var(--white);border-radius:var(--r);border:1px solid var(--divider);overflow:hidden}
+.team-header{padding:1.25rem 1.5rem;display:flex;align-items:center;gap:.75rem}
+.team-flag{font-size:1.6rem;line-height:1}
+.team-header h3{font-size:1rem;font-weight:600;color:var(--dark);margin-bottom:1px}
+.team-header p{font-size:.78rem;color:var(--muted)}
+.team-body{padding:0 1.5rem 1.5rem}
+.team-member{padding:1rem 0;border-bottom:1px solid var(--divider);display:flex;gap:.75rem;align-items:flex-start}
+.team-member:last-child{border-bottom:none}
+.member-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--white)}
+.member-info h4{font-size:.9rem;font-weight:600;color:var(--dark);margin-bottom:1px}
+.member-role{font-size:.78rem;color:var(--burg);font-weight:500;margin-bottom:3px}
+.member-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem}
+.promise{background:var(--white);border:1px solid var(--divider);border-radius:8px;padding:1.25rem;display:flex;gap:.75rem;align-items:flex-start}
+.promise-arrow{color:var(--burg);font-size:1.1rem;font-weight:700;flex-shrink:0;margin-top:1px}
+.promise p{font-size:.85rem;color:var(--body);line-height:1.55}
+.promise strong{color:var(--dark)}
+
+/* ── FAQ ── */
+.faq{background:var(--white);padding:5rem 2rem}
+.faq-list{max-width:720px;margin-top:2.5rem}
+.faq-item{border-bottom:1px solid var(--divider);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:1.1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;font-size:.95rem;font-weight:600;color:var(--dark);font-family:var(--ff-body)}
+.faq-q::after{content:'+';color:var(--burg);font-size:1.2rem;flex-shrink:0;font-weight:300;transition:transform .25s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{font-size:.88rem;color:var(--body);line-height:1.7;padding-bottom:1.1rem}
+
+/* ── CTA BAND ── */
+.cta-band{background:var(--burg);padding:4rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,33,63,0.4),transparent 60%)}
+.cta-band h2{font-family:var(--ff-head);font-size:clamp(1.8rem,3vw,2.4rem);color:var(--white);margin-bottom:.75rem;position:relative;font-weight:400}
+.cta-band p{color:rgba(255,255,255,0.75);margin-bottom:2rem;position:relative;font-size:1rem}
+.cta-form{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-input{height:48px;border-radius:8px;border:none;padding:0 1rem;font-size:.9rem;width:260px;font-family:var(--ff-body);outline:2px solid transparent;transition:outline .2s}
+.cta-input:focus{outline:2px solid var(--gold)}
+.cta-submit{height:48px;background:var(--gold);color:var(--dark);border:none;border-radius:8px;padding:0 22px;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .2s;font-family:var(--ff-body)}
+.cta-submit:hover{background:#FFE080}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);padding:3rem 2rem 1.5rem;color:rgba(255,255,255,0.55);font-size:.85rem}
+.footer-inner{max-width:var(--max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand .logo{font-family:var(--ff-head);font-size:1.4rem;color:var(--white);margin-bottom:.5rem}
+.footer-brand .logo span{color:var(--pink)}
+.footer-brand p{font-size:.82rem;line-height:1.6;color:rgba(255,255,255,0.4);max-width:220px;margin-bottom:1rem}
+.footer-contact a{display:block;color:var(--pink);text-decoration:none;font-size:.82rem;margin-bottom:.3rem}
+.footer-col h4{font-size:.78rem;font-weight:600;color:var(--white);letter-spacing:.5px;text-transform:uppercase;margin-bottom:.85rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.5rem}
+.footer-col a{color:rgba(255,255,255,0.45);text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-col a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;gap:1rem;flex-wrap:wrap}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,0.3)}
+.parent-brand{font-size:.78rem;color:rgba(255,255,255,0.3);text-align:right}
+.parent-brand strong{color:rgba(255,255,255,0.55)}
+
+/* ── APPLY MODAL ── */
+.modal-bg{position:fixed;inset:0;background:rgba(10,2,20,0.85);z-index:200;display:none;align-items:center;justify-content:center;padding:1.5rem}
+.modal-bg.open{display:flex}
+.modal{background:var(--white);border-radius:14px;width:100%;max-width:500px;overflow:hidden;animation:slideUp .3s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.modal-head{background:var(--dark);padding:1.5rem;display:flex;justify-content:space-between;align-items:flex-start}
+.modal-head h3{font-family:var(--ff-head);color:var(--white);font-size:1.25rem;font-weight:400}
+.modal-head p{font-size:.82rem;color:rgba(255,255,255,0.5);margin-top:3px}
+.modal-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;line-height:1;transition:color .2s;padding:0}
+.modal-close:hover{color:var(--white)}
+.modal-body{padding:1.75rem}
+.modal-job-tag{display:inline-block;background:var(--offwh);border:1px solid var(--divider);border-radius:4px;font-size:.78rem;color:var(--burg);font-weight:600;padding:3px 10px;margin-bottom:1.25rem}
+.form-row{margin-bottom:1.1rem}
+.form-row label{display:block;font-size:.8rem;font-weight:600;color:var(--dark);margin-bottom:.35rem}
+.form-row input,.form-row select,.form-row textarea{width:100%;border:1px solid var(--divider);border-radius:7px;padding:.65rem .9rem;font-size:.88rem;font-family:var(--ff-body);color:var(--text);background:var(--white);outline:none;transition:border .2s}
+.form-row input:focus,.form-row select:focus,.form-row textarea:focus{border-color:var(--burg)}
+.form-row textarea{resize:vertical;min-height:80px}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.form-submit{width:100%;background:var(--burg);color:var(--white);border:none;border-radius:8px;padding:.9rem;font-weight:700;font-size:.92rem;cursor:pointer;font-family:var(--ff-body);transition:background .2s;margin-top:.5rem}
+.form-submit:hover{background:var(--crim)}
+.form-note{font-size:.75rem;color:var(--muted);text-align:center;margin-top:.75rem;line-height:1.5}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .advice-grid,.team-grid,.footer-top{grid-template-columns:1fr}
+  .form-2col{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- EMPLOYER BANNER -->
+<div class="emp-banner">
+  <div class="emp-banner-inner">
+    <p>Looking to <strong>hire from India</strong> for your logistics company in Germany?</p>
+    <a href="https://eurodoot.de" class="emp-link" target="_blank">Go to Employer Site ↗</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">Euro<span>Doot</span></a>
+    <ul class="nav-links">
+      <li><a href="#jobs">Jobs in Germany</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#advice">Career Advice</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://eurodoot.de" class="nav-employer" target="_blank">For Employers ↗</a></li>
+      <li><a href="#apply" class="nav-cta" onclick="applyWA('General Enquiry')">Apply Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Germany is actively recruiting from India</div>
+    <h1>Your career in<br><em>Germany</em> starts here</h1>
+    <p class="hero-sub">Real jobs. Verified employers. Full support from your first application to your first day at work — guided by people who have done it themselves.</p>
+    <div class="hero-actions">
+      <a href="#jobs" class="btn btn-primary">See open positions →</a>
+      <a href="#how" class="btn btn-ghost">How it works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">50+</span><span class="stat-l">Candidates ready</span></div>
+      <div class="stat"><span class="stat-n">NRW</span><span class="stat-l">Our focus region</span></div>
+      <div class="stat"><span class="stat-n">A1</span><span class="stat-l">German before you go</span></div>
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Legal & direct</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMAND EVIDENCE -->
+<section class="demand" id="demand">
+  <div class="container">
+    <div class="section-label">Why now</div>
+    <h2 class="section-title">Germany is not just open — it is <em style="font-style:italic;color:var(--burg)">calling</em></h2>
+    <p class="section-sub">This is not speculation. Germany has changed its laws, signed agreements with India, and increased visa quotas specifically to welcome Indian workers.</p>
+    <div class="demand-grid">
+      <div class="demand-card">
+        <div class="demand-icon">🤝</div>
+        <div class="demand-body">
+          <h4>India–Germany Migration Partnership</h4>
+          <p>Both governments signed the Migration and Mobility Partnership Agreement in 2022, creating a formal bilateral framework to facilitate legal work migration from India to Germany.</p>
+          <cite>Government of India & Federal Republic of Germany, 2022</cite>
+        </div>
+      </div>
+      <div class="demand-card">
+        <div class="demand-icon">📈</div>
+        <div class="demand-body">
+          <h4>Visa quota raised from 20,000 to 90,000</h4>
+          <p>Germany increased the skilled worker visa quota for Indian citizens from 20,000 to 90,000 per year. Indian workers in Germany grew from 23,320 in 2015 to 136,670 in 2024.</p>
+          <cite>German Federal Statistics Office, 2024</cite>
+        </div>
+      </div>
+      <div class="demand-card">
+        <div class="demand-icon">🏭</div>
+        <div class="demand-body">
+          <h4>288,000 foreign workers needed every year</h4>
+          <p>Germany requires 288,000 foreign workers annually to sustain its economy. Logistics and transport are officially listed shortage occupations with fast-track visa pathways.</p>
+          <cite>Bertelsmann Foundation, 2024</cite>
+        </div>
+      </div>
+      <div class="demand-card">
+        <div class="demand-icon">⚖️</div>
+        <div class="demand-body">
+          <h4>Chancenkarte — the new entry route</h4>
+          <p>Since 2024, qualified candidates can enter Germany on the Chancenkarte (§ 20a AufenthG) to look for work — even before a contract is signed. The process has never been easier.</p>
+          <cite>German Fachkräfteeinwanderungsgesetz Reform, 2023–2024</cite>
+        </div>
+      </div>
+      <div class="demand-card">
+        <div class="demand-icon">🚛</div>
+        <div class="demand-body">
+          <h4>Logistics is on the official shortage list</h4>
+          <p>Transport and logistics professionals are included in Germany's official Engpassberufe (shortage occupation) list, giving applicants priority treatment and faster visa approvals.</p>
+          <cite>Bundesagentur für Arbeit, 2024–2025</cite>
+        </div>
+      </div>
+      <div class="demand-card">
+        <div class="demand-icon">🌍</div>
+        <div class="demand-body">
+          <h4>NRW: India's largest community hub in Germany</h4>
+          <p>Over 50,000 Indians already live in North Rhine-Westphalia. You will not be starting from zero — there is a ready community, temples, Indian stores, and support networks waiting.</p>
+          <cite>NRW State Statistics, 2024</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EURODOOT -->
+<section class="why" id="why">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem;flex-wrap:wrap">
+      <div>
+        <div class="section-label">Our edge</div>
+        <h2 class="section-title">NRW. Logistics. Nothing else.</h2>
+        <p class="section-sub">We do not try to place people everywhere in every sector. We know the NRW logistics market — the employers, the process, the community — better than anyone. That focus is your advantage.</p>
+      </div>
+      <div style="background:var(--offwh);border-radius:var(--r);padding:1.75rem;border:1px solid var(--divider)">
+        <p style="font-size:.95rem;font-style:italic;color:var(--body);line-height:1.75;margin-bottom:1rem">"We run Germany operations under Saran Capital Holdings UG. We have placed people here ourselves, navigated every authority, and know the warehouses from the inside. This is not theory — it is what we do."</p>
+        <p style="font-size:.82rem;color:var(--muted);font-weight:500">EuroDoot Germany Team · NRW</p>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><div class="why-title">NRW specialists</div><div class="why-text">We know the region, the warehouses, the authorities, and the 50,000-strong Indian community already settled in NRW.</div></div>
+      <div class="why-card"><div class="why-num">02</div><div class="why-title">Logistics only</div><div class="why-text">One sector, maximum depth. From Ausbildung to forklift drivers to logistics technicians — we know exactly what employers want.</div></div>
+      <div class="why-card"><div class="why-num">03</div><div class="why-title">Done it ourselves</div><div class="why-text">Our team has personally hired from India, navigated Agentur für Arbeit, immigration lawyers, health insurers, and local authorities.</div></div>
+      <div class="why-card"><div class="why-num">04</div><div class="why-title">Both sides covered</div><div class="why-text">A dedicated India team in Delhi handles candidate preparation, and a Germany team in NRW handles everything at this end.</div></div>
+      <div class="why-card"><div class="why-num">05</div><div class="why-title">50+ ready now</div><div class="why-text">More than 50 pre-screened candidates are identified and waiting. Background-checked, English-speaking, A1 German in progress.</div></div>
+      <div class="why-card"><div class="why-num">06</div><div class="why-title">Immigration support</div><div class="why-text">We collaborate with an immigration lawyer for case-specific advice, giving you — and the employer — an edge no one else has.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section class="jobs" id="jobs">
+  <div class="container">
+    <div class="section-label">Open positions</div>
+    <h2 class="section-title">Jobs in Germany — NRW Region</h2>
+    <p class="section-sub">All roles are in North Rhine-Westphalia with verified employers. Salaries are gross. We guide you through every step of the application.</p>
+    <div class="jobs-grid">
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge">🏭 Warehouse</div>
+          <div class="job-title">Warehouse Operative</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">12th pass minimum</span>
+            <span class="job-tag">Basic English</span>
+            <span class="job-tag">Full-time · Permanent</span>
+          </div>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€2,200/mo</div>
+          <a href="#" class="btn-apply" onclick="applyWA('Warehouse Operative');return false">Apply →</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge">🚛 Driving & Logistics</div>
+          <div class="job-title">Forklift / Logistics Driver</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">Valid driving licence</span>
+            <span class="job-tag">English required</span>
+            <span class="job-tag">Full-time · Permanent</span>
+          </div>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€2,500/mo</div>
+          <a href="#" class="btn-apply" onclick="applyWA('Forklift / Logistics Driver');return false">Apply →</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge ausb">🎓 Ausbildung</div>
+          <div class="job-title">Ausbildung — Fachkraft für Lagerlogistik</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">12th pass minimum</span>
+            <span class="job-tag">English required</span>
+            <span class="job-tag">3-year vocational training</span>
+          </div>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Includes health insurance, accommodation support, and a recognised German qualification at the end. Long-term visa path.</p>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€1,150/mo<br><span style="font-size:.72rem;color:var(--muted);font-family:var(--ff-body)">+ benefits</span></div>
+          <a href="#" class="btn-apply" onclick="applyWA('Ausbildung - Fachkraft fuer Lagerlogistik');return false">Apply →</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge">📦 Warehouse</div>
+          <div class="job-title">Goods Receiving & Stock Controller</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">ITI / Diploma preferred</span>
+            <span class="job-tag">English required</span>
+            <span class="job-tag">Full-time · Permanent</span>
+          </div>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€2,300/mo</div>
+          <a href="#" class="btn-apply" onclick="applyWA('Goods Receiving and Stock Controller');return false">Apply →</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge">🔧 Technical</div>
+          <div class="job-title">Warehouse Equipment Technician</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">ITI / Diploma in mechanical or electrical</span>
+            <span class="job-tag">English required</span>
+            <span class="job-tag">Full-time · Permanent</span>
+          </div>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€2,800/mo</div>
+          <a href="#" class="btn-apply" onclick="applyWA('Warehouse Equipment Technician');return false">Apply →</a>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div>
+          <div class="job-badge ausb">🎓 Ausbildung</div>
+          <div class="job-title">Ausbildung — Berufskraftfahrer (HGV Driver Training)</div>
+          <div class="job-meta">
+            <span class="job-tag">NRW, Germany</span>
+            <span class="job-tag">Driving licence preferred</span>
+            <span class="job-tag">English required</span>
+            <span class="job-tag">3-year vocational training</span>
+          </div>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">Trains you to become a licensed HGV / truck driver in Germany. One of the highest-demand roles in the country.</p>
+        </div>
+        <div class="job-actions">
+          <div class="job-salary">€900/mo<br><span style="font-size:.72rem;color:var(--muted);font-family:var(--ff-body)">+ benefits</span></div>
+          <a href="#" class="btn-apply" onclick="applyWA('Ausbildung - Berufskraftfahrer HGV Driver');return false">Apply →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS + FEE -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-label" style="color:var(--pink)">The process</div>
+    <h2 class="section-title">How it works — from India to Germany</h2>
+    <p class="section-sub">We guide every step. Most candidates reach their first working day within 16–20 weeks of joining the programme.</p>
+    <div class="steps-flow">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">You apply or reach out</div>
+        <div class="step-text">WhatsApp us, fill the form, or book a free consultation. We review your background and call you within 48 hours.</div>
+        <div class="step-duration">Day 1–2</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Screening & enrolment</div>
+        <div class="step-text">We assess your profile honestly. If you have a strong chance of placing in Germany, we enrol you into the programme. We only take candidates we believe in.</div>
+        <div class="step-duration">Week 1</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">CV, coaching & interview prep</div>
+        <div class="step-text">We prepare your CV, coach you for German employer interviews, and help you create a video introduction. German A1 classes begin online.</div>
+        <div class="step-duration">Weeks 1–4</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Employer video interview</div>
+        <div class="step-text">We present your profile to matching employers in NRW. A video interview is arranged. We moderate and support the process on both sides.</div>
+        <div class="step-duration">Weeks 3–6</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-title">Employer confirms — contracts signed</div>
+        <div class="step-text">Employer says yes. Employment or Ausbildung contract is signed. Document preparation, background checks, and visa application begin.</div>
+        <div class="step-duration">Week 6–8</div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-title">Visa approved</div>
+        <div class="step-text">We coordinate the full visa application with the German embassy. Our immigration lawyer advises on complex cases. Typical processing: 8–12 weeks.</div>
+        <div class="step-duration">Weeks 8–20</div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-title">Flight & arrival in NRW</div>
+        <div class="step-text">You fly to Germany. We receive you, help with Anmeldung (registration), bank account, health insurance, Steuer-ID, and everything you need to settle in.</div>
+        <div class="step-duration">Week 20–22</div>
+      </div>
+      <div class="step">
+        <div class="step-num">8</div>
+        <div class="step-title">First day at work</div>
+        <div class="step-text">You start your new life. We remain available by WhatsApp for any questions. The NRW Indian community is around you.</div>
+        <div class="step-duration">You're there.</div>
+      </div>
+    </div>
+
+    <!-- FEE STRUCTURE -->
+    <div class="fee-section">
+      <div class="fee-title">Programme Fees — Clear, structured, no surprises</div>
+      <p class="fee-intro">We invest real time and money in every candidate we enrol — coaching, CV preparation, interview practice, language class coordination, background checks. That is why fees are tied to programme milestones, not paid all at once.</p>
+      <div class="milestones">
+        <div class="milestone">
+          <div class="milestone-num">Milestone 1 · On Enrolment</div>
+          <div class="milestone-when">When: Once we accept you into the programme</div>
+          <div class="milestone-amount">₹15,000</div>
+          <div class="milestone-what">Covers: CV preparation, interview coaching, video intro guidance, profile building, job matching, and ongoing support while we actively work to place you with a German employer. We do not take just anyone — this fee reflects our commitment to your application.</div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-num">Milestone 2 · On Employer Confirmation</div>
+          <div class="milestone-when">When: After your video interview — employer says yes</div>
+          <div class="milestone-amount">₹35,000</div>
+          <div class="milestone-what">Covers: Document preparation and legalisation, portfolio completion, background verification, German A1 language training (certified), and full coordination of your visa application. From here, the process moves quickly.</div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-num">Milestone 3 · On Visa Approval</div>
+          <div class="milestone-when">When: Your visa is approved by the German embassy</div>
+          <div class="milestone-amount">Equivalent to 1 month's salary</div>
+          <div class="milestone-what">This final payment aligns with your success — it is only due when your visa is in hand and your departure is confirmed. It reflects the full value of the placement and covers arrival support, Anmeldung, and first-month onboarding in Germany.</div>
+        </div>
+      </div>
+      <div class="fee-note">
+        <strong>All fees are non-refundable.</strong> This is because real costs are incurred at each stage — coaching, language training, background checks, document processing, and immigration work. Payments must be made to the official EuroDoot bank account only. <strong>Never pay cash to any individual.</strong> A written receipt is issued for every payment.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER ADVICE -->
+<section class="advice" id="advice">
+  <div class="container">
+    <div class="section-label">Guidance</div>
+    <h2 class="section-title">Career consulting & advice</h2>
+    <p class="section-sub">Free, honest guidance — whether you apply with us or not. We want you to make the right decision for your life.</p>
+    <div class="advice-grid">
+      <div>
+        <div class="topic-list">
+          <div class="topic"><div class="topic-dot" style="background:#8B1A3A"></div><div class="topic-body"><h4>Is Germany the right move for me?</h4><p>Salary realities, cost of living, cultural expectations, family life in NRW</p></div></div>
+          <div class="topic"><div class="topic-dot" style="background:#1E3A8A"></div><div class="topic-body"><h4>Ausbildung vs direct employment — what suits me?</h4><p>Career paths, visa rights, salary differences, and what happens after 3 years</p></div></div>
+          <div class="topic"><div class="topic-dot" style="background:#1A5C38"></div><div class="topic-body"><h4>Am I qualified enough?</h4><p>Which jobs match your education and experience — honest assessment, no false promises</p></div></div>
+          <div class="topic"><div class="topic-dot" style="background:#92400E"></div><div class="topic-body"><h4>How to spot recruitment fraud</h4><p>Red flags, what legitimate agencies never ask for, how to protect yourself</p></div></div>
+          <div class="topic"><div class="topic-dot" style="background:#4C1D95"></div><div class="topic-body"><h4>How difficult is German — really?</h4><p>Realistic timelines, what A1 means in practice, what you will actually need at work</p></div></div>
+          <div class="topic"><div class="topic-dot" style="background:#374151"></div><div class="topic-body"><h4>Life in NRW as an Indian</h4><p>Community, food, religion, family visits, schools, Indian stores and temples</p></div></div>
+        </div>
+        <div class="resources">
+          <div class="resource-item">
+            <div class="resource-icon">📖</div>
+            <div class="resource-body"><h5>Germany Logistics Salary Guide 2025</h5><p>What workers in your role actually earn, after tax</p></div>
+            <a href="#" class="resource-link">Download</a>
+          </div>
+          <div class="resource-item">
+            <div class="resource-icon">🎯</div>
+            <div class="resource-body"><h5>Am I eligible? — 5-minute self-check</h5><p>Quick assessment of your education, age, and English level</p></div>
+            <a href="#" class="resource-link">Start</a>
+          </div>
+          <div class="resource-item">
+            <div class="resource-icon">📝</div>
+            <div class="resource-body"><h5>Full document checklist</h5><p>Every document you will need, explained simply</p></div>
+            <a href="#" class="resource-link">View</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="consult-card">
+          <h3>Book a free 30-min consultation</h3>
+          <p>Talk directly to our team — someone who understands both the Indian and German side. No obligation, no sales pitch. Just honest answers.</p>
+          <div style="margin-bottom:.75rem;font-size:.8rem;color:rgba(255,255,255,0.45);font-weight:500">SELECT YOUR PREFERRED TIME</div>
+          <div class="time-options">
+            <div class="time-opt active" onclick="selectTime(this)">
+              <strong>Mon–Fri</strong>
+              <span>Morning · 9am–12pm IST</span>
+            </div>
+            <div class="time-opt" onclick="selectTime(this)">
+              <strong>Mon–Fri</strong>
+              <span>Afternoon · 2pm–6pm IST</span>
+            </div>
+          </div>
+          <input type="text" id="consultNum" placeholder="Your WhatsApp number (+91...)" style="width:100%;border:1px solid rgba(255,255,255,0.15);border-radius:7px;padding:.65rem .9rem;font-size:.88rem;background:rgba(255,255,255,0.07);color:var(--white);margin-bottom:.75rem;font-family:var(--ff-body)">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;background:var(--burg)" onclick="requestCallback()">Request Callback on WhatsApp</button>
+          <p class="consult-note">We will call you within your selected window on the next available weekday. Calls are in English or Hindi — your choice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">Our team</div>
+    <h2 class="section-title">Professionals on both sides — covering every step</h2>
+    <div class="about-lead">
+      <p>EuroDoot is a brand of <strong>Saran Capital Holdings UG</strong>, a German company. Our work is not the work of one person — it is a coordinated team effort, with experienced professionals handling every function needed to make a placement succeed: from candidate screening in India to visa filing in Germany, and from legal advice to first-day settlement support in NRW.</p>
+      <p>We have done this. Our team has hired from India, brought people to Germany, navigated the Agentur für Arbeit, dealt with health insurers, and know the warehouses from the inside. That experience is what you are working with — not a startup guessing its way through.</p>
+    </div>
+
+    <div class="team-grid">
+      <!-- INDIA TEAM -->
+      <div class="team-side">
+        <div class="team-header" style="background:var(--offwh);border-bottom:1px solid var(--divider)">
+          <div class="team-flag">🇮🇳</div>
+          <div>
+            <h3>India Team — Delhi</h3>
+            <p>Sourcing, screening, preparation, candidate support</p>
+          </div>
+        </div>
+        <div class="team-body">
+          <div class="team-member">
+            <div class="member-avatar" style="background:#1E3A8A">SP</div>
+            <div class="member-info">
+              <h4>India Programme Director</h4>
+              <div class="member-role">16 years industry experience · Delhi</div>
+              <div class="member-desc">Our India partner leads the full sourcing operation. With over 16 years in the sector and a dedicated local team, he manages candidate discovery, initial screening, document collection, and on-ground support for every candidate in the programme.</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar" style="background:#374151">CS</div>
+            <div class="member-info">
+              <h4>Candidate Screening Team</h4>
+              <div class="member-role">Background checks · Document review · India</div>
+              <div class="member-desc">Conducts face-to-face candidate interviews, verifies educational certificates and employment history, organises police clearance, and coordinates the medical fitness check. Only pre-cleared candidates reach EuroDoot Germany.</div>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar" style="background:#92400E">LC</div>
+            <div class="member-info">
+              <h4>Language & Interview Coach</h4>
+              <div class="member-role">German A1 training · Interview preparation · India</div>
+              <div class="member-desc">Coordinates certified German A1 online classes, coaches candidates for employer video interviews, reviews CVs and video introductions, and prepares candidates for the cultural expectations of a German workplace.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GERMANY TEAM -->
+      <div class="team-side">
+        <div class="team-header" style="background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.08)">
+          <div class="team-flag">🇩🇪</div>
+          <div>
+            <h3 style="color:var(--white)">Germany Team — NRW</h3>
+            <p style="color:rgba(255,255,255,0.5)">Employer relations, visa, onboarding, legal</p>
+          </div>
+        </div>
+        <div class="team-body" style="background:var(--dark)">
+          <div class="team-member" style="border-color:rgba(255,255,255,0.08)">
+            <div class="member-avatar" style="background:var(--burg)">HR</div>
+            <div class="member-info">
+              <h4 style="color:var(--white)">HR & Compliance Manager</h4>
+              <div class="member-role" style="color:var(--pink)">German labour law · Employer relations · NRW</div>
+              <div class="member-desc" style="color:rgba(255,255,255,0.5)">Knows the German HR compliance process inside-out — Agentur für Arbeit procedures, Aufenthaltsgesetz obligations, employment contract requirements, and Betriebsrat notification rules. Has managed Indian hires in Germany previously.</div>
+            </div>
+          </div>
+          <div class="team-member" style="border-color:rgba(255,255,255,0.08)">
+            <div class="member-avatar" style="background:#1A5C38">OP</div>
+            <div class="member-info">
+              <h4 style="color:var(--white)">Operations & Settlement Coordinator</h4>
+              <div class="member-role" style="color:var(--pink)">Anmeldung · Authorities · NRW on-the-ground</div>
+              <div class="member-desc" style="color:rgba(255,255,255,0.5)">Runs candidate settlement on arrival: Einwohnermeldeamt registration, health insurance sign-up, Steuer-ID, bank account, SIM card. Has established contacts at local authorities, reducing processing times significantly.</div>
+            </div>
+          </div>
+          <div class="team-member" style="border-color:rgba(255,255,255,0.08)">
+            <div class="member-avatar" style="background:#4C1D95">IL</div>
+            <div class="member-info">
+              <h4 style="color:var(--white)">Immigration Legal Advisor</h4>
+              <div class="member-role" style="color:var(--pink)">Collaborative partner · Visa & residency law</div>
+              <div class="member-desc" style="color:rgba(255,255,255,0.5)">A qualified German immigration lawyer provides case-specific legal advice on complex visa situations, Chancenkarte applications, and residence permit strategy. Not every case needs it — but when it does, this resource is available.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMISES -->
+    <div class="section-label" style="margin-top:2.5rem">Our commitment to you</div>
+    <div class="promise-grid">
+      <div class="promise"><div class="promise-arrow">→</div><p><strong>We never ask for money before you are enrolled.</strong> Fees only apply once we confirm we can genuinely help you.</p></div>
+      <div class="promise"><div class="promise-arrow">→</div><p><strong>We explain every step before it happens.</strong> No surprises, no confusion about what comes next.</p></div>
+      <div class="promise"><div class="promise-arrow">→</div><p><strong>We are reachable by WhatsApp, not just email.</strong> Real people, real responses — in English or Hindi.</p></div>
+      <div class="promise"><div class="promise-arrow">→</div><p><strong>We only enrol candidates we genuinely believe can succeed.</strong> Our reputation depends on placements that work out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label">Questions answered</div>
+    <h2 class="section-title">Frequently asked questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">What does the ₹15,000 enrolment fee cover?</button>
+        <div class="faq-a"><p>Once we accept you into the programme, we immediately begin working on your behalf: CV preparation, interview coaching, video introduction review, profile building, and active job matching with employers in NRW. This requires real time from our team. The ₹15,000 covers this work — regardless of how long the placement takes. We are committed to placing you.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">When is the ₹35,000 due, and what does it cover?</button>
+        <div class="faq-a"><p>The ₹35,000 is due only after a German employer has interviewed you via video call and confirmed they want to hire you. At that point, we begin document legalisation, background verification, certified German A1 language training, and your full visa application. This is the most intensive stage — it requires significant coordination between our India team, Germany team, and the embassy.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is the third payment — and why is it tied to the visa?</button>
+        <div class="faq-a"><p>The third payment, equivalent to one month's gross salary, is due once your visa is approved by the German embassy. At that point your departure is confirmed, and we begin arrival coordination: airport pickup, Anmeldung, bank account, health insurance, and first-month settlement in NRW. Tying it to visa approval means you only pay this when your move to Germany is certain.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Are the fees refundable?</button>
+        <div class="faq-a"><p>No — all fees are non-refundable. This is because real, ongoing costs are incurred at every stage. Language teachers, background check providers, document experts, and the time of our own team are paid from these fees. We are transparent about this upfront. All payments are made to the official EuroDoot bank account and receipts are issued immediately.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What if my visa is rejected?</button>
+        <div class="faq-a"><p>Visa rejections are rare when candidates are properly prepared — which is exactly what we do. If a rejection occurs due to reasons within our influence, we will work with our immigration lawyer to understand the issue and advise on next steps or re-application. We do not abandon candidates after a rejection. If the rejection is due to false information provided by the candidate, no refund applies.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Is Ausbildung better than a direct job?</button>
+        <div class="faq-a"><p>It depends on your goal. Ausbildung pays less initially (€1,150/month) but gives you a recognised German vocational qualification after 2–3 years — and a strong long-term visa path. Direct employment pays more immediately but does not give a qualification. We discuss both options openly in your consultation and recommend what suits your background and life plan.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How much German do I need before I arrive?</button>
+        <div class="faq-a"><p>A1 is the minimum, and we arrange and coordinate A1 training as part of the programme. It takes 3–4 months of regular online classes. You will reach A1 before departure. Your employer in NRW knows this and expects it. We strongly recommend continuing to A2 after arrival — it makes daily life significantly easier.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How do I know EuroDoot is legitimate?</button>
+        <div class="faq-a"><p>EuroDoot is a brand of Saran Capital Holdings UG, a registered German company. Our team has personally hired Indian workers and brought them to Germany. We provide written contracts before any money changes hands. We only request payment after you are enrolled — never upfront before we know you. All payments go to an official bank account with written receipts. If anyone asks you to pay cash to an individual, that is not us — report it immediately.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" id="apply">
+  <div class="container">
+    <h2>Ready to begin?</h2>
+    <p>Leave your WhatsApp number and we will call you within 48 hours.</p>
+    <div class="cta-form">
+      <input class="cta-input" id="ctaName" placeholder="Your full name" type="text">
+      <input class="cta-input" id="ctaPhone" placeholder="WhatsApp number (+91...)" type="tel">
+      <button class="cta-submit" onclick="ctaSend()">Send on WhatsApp →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">Euro<span>Doot</span></div>
+        <p>Connecting motivated Indian professionals with logistics employers in NRW, Germany.</p>
+        <div class="footer-contact">
+          <a href="mailto:eurodoot.india@gmail.com">eurodoot.india@gmail.com</a>
+          <a href="tel:+919310527346">+91 93105 27346</a>
+          <a href="https://wa.me/919310527346">WhatsApp us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Find Work</h4>
+        <ul>
+          <li><a href="#jobs">All open positions</a></li>
+          <li><a href="#jobs">Ausbildung roles</a></li>
+          <li><a href="#jobs">Full-time roles</a></li>
+          <li><a href="#how">How it works</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Guidance</h4>
+        <ul>
+          <li><a href="#advice">Career consulting</a></li>
+          <li><a href="#advice">Free resources</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#about">About EuroDoot</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Employer</h4>
+        <ul>
+          <li><a href="https://eurodoot.de">Employer site</a></li>
+          <li><a href="https://eurodoot.de">Hire from India</a></li>
+          <li><a href="https://eurodoot.de">Our pricing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 EuroDoot · eurodoot.in · All rights reserved · Privacy Policy · Terms of Use</p>
+      <div class="parent-brand">A brand of <strong>Saran Capital Holdings UG</strong> · Registered in Germany</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── WHATSAPP APPLY ─────────────────────────────────────
+const WA_NUMBER = '919310527346'; // India number, no + or spaces
+
+function applyWA(jobTitle) {
+  const msg = encodeURIComponent(
+    'Hi EuroDoot! I would like to apply for the following position:\n\n' +
+    '📋 Role: ' + jobTitle + '\n' +
+    '📍 Location: NRW, Germany\n\n' +
+    'Please let me know the next steps. Thank you!'
+  );
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + msg, '_blank');
+}
+
+// Bottom CTA send button — also opens WhatsApp
+function ctaSend() {
+  const name = document.getElementById('ctaName').value.trim();
+  const phone = document.getElementById('ctaPhone').value.trim();
+  if (!name && !phone) { applyWA('General Enquiry'); return; }
+  const msg = encodeURIComponent(
+    'Hi EuroDoot! I am interested in working in Germany.\n\n' +
+    (name  ? '👤 Name: ' + name + '\n' : '') +
+    (phone ? '📱 My number: ' + phone + '\n' : '') +
+    '\nPlease contact me. Thank you!'
+  );
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + msg, '_blank');
+}
+
+// Consultation callback — opens WhatsApp with time slot
+function requestCallback() {
+  const num  = document.getElementById('consultNum').value.trim();
+  const slot = document.querySelector('.time-opt.active strong');
+  const time = document.querySelector('.time-opt.active span');
+  const slotText = slot ? slot.textContent + ' · ' + time.textContent : 'Mon–Fri';
+  const msg = encodeURIComponent(
+    'Hi EuroDoot! I would like to book a free 30-min career consultation.\n\n' +
+    '🕐 Preferred time: ' + slotText + '\n' +
+    (num ? '📱 My WhatsApp: ' + num : '') +
+    '\n\nPlease call me. Thank you!'
+  );
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + msg, '_blank');
+}
+
+// FAQ toggle
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// Time slot selector
+function selectTime(el){
+  document.querySelectorAll('.time-opt').forEach(o=>o.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+</body>
+</html>
